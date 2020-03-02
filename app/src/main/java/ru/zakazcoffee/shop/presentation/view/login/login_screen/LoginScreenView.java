@@ -10,6 +10,4 @@ public interface LoginScreenView extends MvpView {
     void showToast(String message);
 
     void showMainActivity();
-
-    void setTimer(String expiresIn);
 }

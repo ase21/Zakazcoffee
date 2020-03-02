@@ -2,6 +2,8 @@
     <string name="app_name">Zakazcoffee</string>
     <string name="new_here_create_an_account">У вас нет аккаунта? Регистрация</string>
     <string name="sign_in">Войти</string>
-    <string name="email">Имя или E-mail</string>
+    <string name="name_or_email">Имя или E-mail</string>
+    <string name="email">E-mail</string>
     <string name="password">Пароль</string>
+    <string name="full_name">Имя</string>
 </resources>

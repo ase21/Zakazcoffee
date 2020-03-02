@@ -24,7 +24,9 @@ import butterknife.Unbinder;
 import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
 import ru.zakazcoffee.shop.R;
+import ru.zakazcoffee.shop.presentation.presenter.login.login_screen.LoginPresenter;
 import ru.zakazcoffee.shop.presentation.view.login.LoginActivity;
+import ru.zakazcoffee.shop.presentation.view.login.new_acc_screen.NewAccountFragment;
 
 public class LoginScreenFragment extends MvpAppCompatFragment implements LoginScreenView {
 
@@ -70,11 +72,6 @@ public class LoginScreenFragment extends MvpAppCompatFragment implements LoginSc
     @Override
     public void showMainActivity() {
         ((LoginActivity) getActivity()).showMainScreen();
-    }
-
-    @Override
-    public void setTimer(String expiresIn) {
-        RefreshTokenReceiver.setAlarm(getContext(), (int)Float.parseFloat(expiresIn));
     }
 
     @Override
