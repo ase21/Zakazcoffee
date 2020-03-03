@@ -7,4 +7,7 @@
     <string name="password">Пароль</string>
     <string name="full_name">Имя</string>
     <string name="continue_reg">Продолжить</string>
+    <string name="complete_reg">Готово</string>
+    <string name="sent_mail_description">На ваш E-mail было отправлено письмо, с ссылкой для подтверждения регистрации.</string>
+    <string name="resend_email">Отправить письмо повторно</string>
 </resources>

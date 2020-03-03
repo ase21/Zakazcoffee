@@ -2,13 +2,10 @@ package ru.zakazcoffee.shop.presentation.view.login.login_screen;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.jakewharton.rxbinding3.widget.RxTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,26 +51,7 @@ public class LoginScreenFragment extends MvpAppCompatFragment implements LoginSc
         s.setSpan(new StyleSpan(Typeface.BOLD), 10, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s.setSpan(new UnderlineSpan(), 10, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         newAccountTextView.setText(s);
-        loginEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("text", "isActivated: " + loginEditText.isActivated());
-                Log.d("text", "isFocused: " + loginEditText.isFocused());
-                Log.d("text", "isPressed: " + loginEditText.isPressed());
-//                Log.d("text", "isActivated: " + loginEditText.isActivated());
-//                Log.d("text", "isActivated: " + loginEditText.isActivated());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        presenter.listenFields(RxTextView.textChangeEvents(loginEditText), RxTextView.textChangeEvents(passwordEditText));
         return view;
     }
 

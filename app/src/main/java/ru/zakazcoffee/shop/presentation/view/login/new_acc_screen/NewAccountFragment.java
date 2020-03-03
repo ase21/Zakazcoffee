@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.jakewharton.rxbinding3.widget.RxTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,9 +21,13 @@ import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
 import ru.zakazcoffee.shop.R;
 import ru.zakazcoffee.shop.presentation.presenter.login.new_acc_screen.NewAccountPresenter;
+import ru.zakazcoffee.shop.presentation.view.login.LoginActivity;
+import ru.zakazcoffee.shop.presentation.view.login.reg_confirmation.RegConfirmationFragment;
 
 public class NewAccountFragment extends MvpAppCompatFragment implements NewAccountView {
 
+    @BindView(R.id.headerTextView)
+    TextView headerTextView;
     @BindView(R.id.fullNameEditText)
     EditText fullNameEditText;
     @BindView(R.id.emailEditText)
@@ -38,6 +45,8 @@ public class NewAccountFragment extends MvpAppCompatFragment implements NewAccou
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_account, container, false);
         unbinder = ButterKnife.bind(this, view);
+        headerTextView.setText("Регистрация");
+        presenter.listenFields(RxTextView.textChangeEvents(fullNameEditText), RxTextView.textChangeEvents(emailEditText), RxTextView.textChangeEvents(passwordEditText));
         return view;
     }
 
@@ -51,6 +60,12 @@ public class NewAccountFragment extends MvpAppCompatFragment implements NewAccou
         presenter.createNewAccount(fullNameEditText.getText().toString(),
                 emailEditText.getText().toString(),
                 passwordEditText.getText().toString());
+        ((LoginActivity) getActivity()).showFragment(new RegConfirmationFragment());
+    }
+
+    @OnClick(R.id.backImageButton)
+    void onBackImageViewClicked() {
+        getActivity().onBackPressed();
     }
 
     @Override

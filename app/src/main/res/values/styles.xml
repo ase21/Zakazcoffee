@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorButtonBackground</item>
         <item name="colorAccent">@color/colorButtonBackground</item>
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
     </style>
 
     <!-- Кастомная AppTheme.Launcher. Устанавливает в качестве фона вашу drawable -->
