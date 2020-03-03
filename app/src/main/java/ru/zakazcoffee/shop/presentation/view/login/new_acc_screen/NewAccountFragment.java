@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,11 +22,11 @@ import ru.zakazcoffee.shop.presentation.presenter.login.new_acc_screen.NewAccoun
 public class NewAccountFragment extends MvpAppCompatFragment implements NewAccountView {
 
     @BindView(R.id.fullNameEditText)
-    TextInputEditText fullNameEditText;
+    EditText fullNameEditText;
     @BindView(R.id.emailEditText)
-    TextInputEditText emailEditText;
+    EditText emailEditText;
     @BindView(R.id.passwordEditText)
-    TextInputEditText passwordEditText;
+    EditText passwordEditText;
 
     @InjectPresenter
     NewAccountPresenter presenter;

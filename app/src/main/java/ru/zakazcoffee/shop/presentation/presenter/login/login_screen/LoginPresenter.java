@@ -3,8 +3,6 @@ package ru.zakazcoffee.shop.presentation.presenter.login.login_screen;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import moxy.InjectViewState;
 import moxy.MvpPresenter;
@@ -15,41 +13,41 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
 
     private final CompositeDisposable compositeDisposable;
 
-    @Inject
-    LoginInteractor interactor;
+//    @Inject
+//    LoginInteractor interactor;
 
     public LoginPresenter() {
         compositeDisposable = new CompositeDisposable();
-        App.getInstance().plusLoginComponent().inject(this);
+//        App.getInstance().plusLoginComponent().inject(this);
     }
 
     public void login(String email, String password){
-        compositeDisposable.add(
-                interactor
-                        .login(email, password)
-                        .subscribe(response -> {
-                                    switch (response.code()){
-                                        case 400:{
-//                                            showMessage("Invalid login or password");
-                                            ResponseBody responseBody = response.errorBody();
-                                            findErrors(responseBody.string());
-                                            break;
-                                        }
-                                        case 200:{
-                                            LoginSuccessResponse successResponse = new Gson().fromJson(response.body().toString(), LoginSuccessResponse.class);
-                                            saveToken(successResponse.getData().getAccessToken());
-                                            getViewState().showMainActivity();
-                                            break;
-                                        }
-                                        default:{
-                                            showMessage(response.message());
-                                        }
-                                    }
-                                },
-                                throwable -> showMessage(throwable.getMessage()),
-                                () -> showMessage("Try to login later")
-                        )
-        );
+//        compositeDisposable.add(
+//                interactor
+//                        .login(email, password)
+//                        .subscribe(response -> {
+//                                    switch (response.code()){
+//                                        case 400:{
+////                                            showMessage("Invalid login or password");
+//                                            ResponseBody responseBody = response.errorBody();
+//                                            findErrors(responseBody.string());
+//                                            break;
+//                                        }
+//                                        case 200:{
+//                                            LoginSuccessResponse successResponse = new Gson().fromJson(response.body().toString(), LoginSuccessResponse.class);
+//                                            saveToken(successResponse.getData().getAccessToken());
+//                                            getViewState().showMainActivity();
+//                                            break;
+//                                        }
+//                                        default:{
+//                                            showMessage(response.message());
+//                                        }
+//                                    }
+//                                },
+//                                throwable -> showMessage(throwable.getMessage()),
+//                                () -> showMessage("Try to login later")
+//                        )
+//        );
     }
 
     private void findErrors(String string) {
@@ -92,7 +90,7 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
     }
 
     private void saveToken(String accessToken) {
-        compositeDisposable.add(interactor.saveToken(accessToken).subscribe(() -> {}, throwable -> {}));
+//        compositeDisposable.add(interactor.saveToken(accessToken).subscribe(() -> {}, throwable -> {}));
     }
 
     private void showMessage(String message) {
@@ -101,6 +99,6 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
 
     public void destroy() {
         compositeDisposable.clear();
-        App.getInstance().clearLoginComponent();
+//        App.getInstance().clearLoginComponent();
     }
 }

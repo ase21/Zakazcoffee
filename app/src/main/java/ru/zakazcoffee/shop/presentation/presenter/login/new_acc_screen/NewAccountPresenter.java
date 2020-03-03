@@ -3,8 +3,6 @@ package ru.zakazcoffee.shop.presentation.presenter.login.new_acc_screen;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import moxy.InjectViewState;
 import moxy.MvpPresenter;
@@ -15,37 +13,37 @@ public class NewAccountPresenter extends MvpPresenter<NewAccountView> {
 
     private final CompositeDisposable compositeDisposable;
 
-    @Inject
-    NewAccountInteractor interactor;
+//    @Inject
+//    NewAccountInteractor interactor;
 
     public NewAccountPresenter() {
         compositeDisposable = new CompositeDisposable();
-        App.getInstance().plusNewAccountComponent().inject(this);
+//        App.getInstance().plusNewAccountComponent().inject(this);
     }
 
     public void createNewAccount(String fullname, String email, String password) {
-        compositeDisposable.add(interactor.createNewAccount(fullname, email, password)
-                        .subscribe(response -> {
-                                    switch (response.code()) {
-                                        case 400: {
-                                            ResponseBody responseBody = response.errorBody();
-                                            findErrors(responseBody.string());
-
-//                                    DetailMessageErrorResponse errorResponse = new Gson().fromJson(responseBody.string(), DetailMessageErrorResponse.class);
-                                            break;
-                                        }
-                                        case 200: {
-                                            NewAccountSuccessResponse successResponse = (NewAccountSuccessResponse) response.body();
-                                            break;
-                                        }
-                                        default: {
-                                            NewAccountPresenter.this.showMessage(response.message());
-                                        }
-                                    }
-                                },
-                                throwable -> showMessage(throwable.getMessage()),
-                                () -> NewAccountPresenter.this.showMessage("Try to create account later"))
-        );
+//        compositeDisposable.add(interactor.createNewAccount(fullname, email, password)
+//                        .subscribe(response -> {
+//                                    switch (response.code()) {
+//                                        case 400: {
+//                                            ResponseBody responseBody = response.errorBody();
+//                                            findErrors(responseBody.string());
+//
+////                                    DetailMessageErrorResponse errorResponse = new Gson().fromJson(responseBody.string(), DetailMessageErrorResponse.class);
+//                                            break;
+//                                        }
+//                                        case 200: {
+//                                            NewAccountSuccessResponse successResponse = (NewAccountSuccessResponse) response.body();
+//                                            break;
+//                                        }
+//                                        default: {
+//                                            NewAccountPresenter.this.showMessage(response.message());
+//                                        }
+//                                    }
+//                                },
+//                                throwable -> showMessage(throwable.getMessage()),
+//                                () -> NewAccountPresenter.this.showMessage("Try to create account later"))
+//        );
     }
 
     private void findErrors(String string) {
@@ -93,6 +91,6 @@ public class NewAccountPresenter extends MvpPresenter<NewAccountView> {
 
     public void destroy() {
         compositeDisposable.clear();
-        App.getInstance().clearNewAccountComponent();
+//        App.getInstance().clearNewAccountComponent();
     }
 }

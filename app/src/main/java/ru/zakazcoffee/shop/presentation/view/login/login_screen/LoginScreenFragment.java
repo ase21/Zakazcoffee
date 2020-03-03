@@ -2,20 +2,22 @@ package ru.zakazcoffee.shop.presentation.view.login.login_screen;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,12 +33,11 @@ import ru.zakazcoffee.shop.presentation.view.login.new_acc_screen.NewAccountFrag
 public class LoginScreenFragment extends MvpAppCompatFragment implements LoginScreenView {
 
     @BindView(R.id.loginEditText)
-    TextInputEditText loginEditText;
+    EditText loginEditText;
     @BindView(R.id.passwordEditText)
-    TextInputEditText passwordEditText;
+    EditText passwordEditText;
     @BindView(R.id.newAccountTextView)
     TextView newAccountTextView;
-
     @InjectPresenter
     LoginPresenter presenter;
 
@@ -51,6 +52,26 @@ public class LoginScreenFragment extends MvpAppCompatFragment implements LoginSc
         s.setSpan(new StyleSpan(Typeface.BOLD), 10, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s.setSpan(new UnderlineSpan(), 10, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         newAccountTextView.setText(s);
+        loginEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.d("text", "isActivated: " + loginEditText.isActivated());
+                Log.d("text", "isFocused: " + loginEditText.isFocused());
+                Log.d("text", "isPressed: " + loginEditText.isPressed());
+//                Log.d("text", "isActivated: " + loginEditText.isActivated());
+//                Log.d("text", "isActivated: " + loginEditText.isActivated());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         return view;
     }
 

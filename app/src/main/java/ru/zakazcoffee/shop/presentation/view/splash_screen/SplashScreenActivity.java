@@ -20,6 +20,7 @@ public class SplashScreenActivity extends MvpAppCompatActivity implements Splash
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         presenter.checkIsUserLoggedIn();
+        showLoginScreen();
     }
 
     @Override
