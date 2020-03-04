@@ -18,7 +18,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import moxy.MvpAppCompatFragment;
+import moxy.presenter.InjectPresenter;
 import ru.zakazcoffee.shop.R;
+import ru.zakazcoffee.shop.presentation.presenter.login.reg_confirmation.RegConfirmationPresenter;
 
 public class RegConfirmationFragment extends MvpAppCompatFragment implements RegConfirmationView {
 
@@ -27,8 +29,8 @@ public class RegConfirmationFragment extends MvpAppCompatFragment implements Reg
     @BindView(R.id.pinView)
     PinView pinView;
 
-//    @InjectPresenter
-//    RegConfirmationPresenter presenter;
+    @InjectPresenter
+    RegConfirmationPresenter presenter;
 
     private Unbinder unbinder;
 
@@ -61,7 +63,7 @@ public class RegConfirmationFragment extends MvpAppCompatFragment implements Reg
 
     @Override
     public void onDestroy() {
-//        presenter.destroy();
+        presenter.destroy();
         super.onDestroy();
     }
 }

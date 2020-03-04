@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import moxy.MvpAppCompatActivity;
 import moxy.presenter.InjectPresenter;
-import ru.zakazcoffee.shop.MainActivity;
+import ru.zakazcoffee.shop.presentation.view.main.MainActivity;
 import ru.zakazcoffee.shop.R;
 import ru.zakazcoffee.shop.presentation.presenter.splash_screen.SplashScreenPresenter;
 import ru.zakazcoffee.shop.presentation.view.login.LoginActivity;

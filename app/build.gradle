@@ -51,6 +51,11 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'com.jakewharton.rxbinding3:rxbinding-core:3.1.0'
+    //retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
+    implementation "com.squareup.retrofit2:converter-gson:2.7.2"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.2"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.2"
     //PinView
     implementation 'com.chaos.view:pinview:1.4.3'
 }

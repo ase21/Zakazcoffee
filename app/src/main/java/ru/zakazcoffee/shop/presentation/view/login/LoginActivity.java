@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import ru.zakazcoffee.shop.MainActivity;
+import ru.zakazcoffee.shop.presentation.view.main.MainActivity;
 import ru.zakazcoffee.shop.R;
 import ru.zakazcoffee.shop.presentation.view.login.login_screen.LoginScreenFragment;
 
