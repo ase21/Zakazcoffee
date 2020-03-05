@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.chaos.view.PinView;
-import com.jakewharton.rxbinding3.widget.RxTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +39,7 @@ public class RegConfirmationFragment extends MvpAppCompatFragment implements Reg
         View view = inflater.inflate(R.layout.fragment_reg_confirmation, container, false);
         unbinder = ButterKnife.bind(this, view);
         headerTextView.setText("Подтверждение");
-        presenter.listenFields(RxTextView.textChangeEvents(pinView));
+//        presenter.listenFields(RxTextView.textChangeEvents(pinView));
         return view;
     }
 

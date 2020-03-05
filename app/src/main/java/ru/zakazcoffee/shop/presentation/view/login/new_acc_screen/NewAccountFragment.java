@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,8 @@ public class NewAccountFragment extends MvpAppCompatFragment implements NewAccou
     EditText emailEditText;
     @BindView(R.id.passwordEditText)
     EditText passwordEditText;
+    @BindView(R.id.createButton)
+    Button createButton;
 
     @InjectPresenter
     NewAccountPresenter presenter;
@@ -55,11 +58,16 @@ public class NewAccountFragment extends MvpAppCompatFragment implements NewAccou
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void setEnableSendButton(Boolean isUnable) {
+        createButton.setEnabled(isUnable);
+    }
+
     @OnClick(R.id.createButton)
     void onCreateButtonClicked() {
-        presenter.createNewAccount(fullNameEditText.getText().toString(),
-                emailEditText.getText().toString(),
-                passwordEditText.getText().toString());
+//        presenter.createNewAccount(fullNameEditText.getText().toString(),
+//                emailEditText.getText().toString(),
+//                passwordEditText.getText().toString());
         ((LoginActivity) getActivity()).showFragment(new RegConfirmationFragment());
     }
 

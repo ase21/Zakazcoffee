@@ -9,6 +9,7 @@ import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class LoginScreenFragment extends MvpAppCompatFragment implements LoginSc
     EditText passwordEditText;
     @BindView(R.id.newAccountTextView)
     TextView newAccountTextView;
+    @BindView(R.id.loginButton)
+    Button loginButton;
     @InjectPresenter
     LoginPresenter presenter;
 
@@ -76,8 +79,14 @@ public class LoginScreenFragment extends MvpAppCompatFragment implements LoginSc
     }
 
     @Override
+    public void setEnableSendButton(Boolean isUnable) {
+        loginButton.setEnabled(isUnable);
+    }
+
+    @Override
     public void onDestroy() {
         presenter.destroy();
+        unbinder.unbind();
         super.onDestroy();
     }
 }

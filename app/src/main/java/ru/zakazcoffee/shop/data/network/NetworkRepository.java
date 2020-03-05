@@ -7,9 +7,9 @@ import retrofit2.http.POST;
 
 public interface NetworkRepository {
 
-    @POST("/api/v1/register")
-    Maybe<Response<Object>> createNewAccount(@Body String gatewayAuthorizeRequest);
-
     @POST("/api/v1/login")
     Maybe<Response<Object>> login(@Body String gatewayAuthorizeRequest);
+
+    @POST("/api/v1/register")
+    Maybe<Response<Object>> createNewAccount(@Body String gatewayAuthorizeRequest);
 }
