@@ -22,7 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:hintTextColor="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fullNameEditText"
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/full_name"
             android:inputType="text"
+            android:textColor="@color/colorAccent"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="396dp" />
 
@@ -43,14 +45,16 @@
         app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/fullNameInputLayout"
+        app:hintTextColor="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorAccent"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="396dp" />
 
@@ -65,6 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
+        app:hintTextColor="@color/colorAccent"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/colorAccent">
 
@@ -74,6 +79,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="472dp" />
 
