@@ -10,4 +10,8 @@
     <string name="complete_reg">Готово</string>
     <string name="sent_mail_description">На ваш E-mail было отправлено письмо, с ссылкой для подтверждения регистрации.</string>
     <string name="resend_email">Отправить письмо повторно</string>
+    <string name="main">Главная</string>
+    <string name="basket">Корзина</string>
+    <string name="profile">Профиль</string>
+    <string name="more">Ещё</string>
 </resources>

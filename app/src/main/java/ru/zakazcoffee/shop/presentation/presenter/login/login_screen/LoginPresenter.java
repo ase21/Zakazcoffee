@@ -26,16 +26,17 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
     }
 
     public void login(String email, String password){
-        compositeDisposable.add(
-                interactor
-                        .login(email, password)
-                        .subscribe(response -> {
-                                    // TODO: 05.03.2020 do nothing
-                                },
-                                throwable -> showMessage(throwable.getMessage()),
-                                () -> showMessage("Try to login later")
-                        )
-        );
+//        compositeDisposable.add(
+//                interactor
+//                        .login(email, password)
+//                        .subscribe(response -> {
+//                                    // TODO: 05.03.2020 do nothing
+//                                },
+//                                throwable -> showMessage(throwable.getMessage()),
+//                                () -> showMessage("Try to login later")
+//                        )
+//        );
+        getViewState().showMainActivity();
     }
 
     private void saveToken(String accessToken) {
