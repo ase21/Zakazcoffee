@@ -8,7 +8,8 @@
         <item name="colorAccent">@color/colorButtonBackground</item>
         <item name="pinViewStyle">@style/PinWidget.PinView</item>
         <item name="android:textColorHint">#c5c5c5</item>
-        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="android:textColor">#c5c5c5</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>

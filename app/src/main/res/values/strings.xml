@@ -14,4 +14,9 @@
     <string name="basket">Корзина</string>
     <string name="profile">Профиль</string>
     <string name="more">Ещё</string>
+    <string name="category">Категории</string>
+    <string name="top_coffee">Топ кофе</string>
+    <string name="news">Новости</string>
+    <string name="recently_watched">Недавно просмотренные</string>
+    <string name="detail">Подробнее</string>
 </resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/newsTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="8dp"
+        tools:text="Заголовок новости 1"/>
+
+    <TextView
+        android:id="@+id/newsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ellipsize="end"
+        android:maxLines="4"
+        tools:text="Aenean et aliquam viverra vestibulum orci, et. Nunc risus at dictum odio lectus. Praesent rutrum vel ipsum vitae diam. Molestie sed duis urna dapibus rna dapibus rna dapibus rna dapibus rna dapibus rna dapibus rna dapibus rna dapibus rna dapibus id sit. Massa venenatis idviverra vestibulum orci, et. Nunc risus at dictum odio lectus. Praesent rutrum vel ipsum vitae diam. Molestie sed duis urna dapibus id sit. Massa venenatis id arcu, at egestas posuere id. Quis" />
+
+    <TextView
+        android:id="@+id/detailTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="end"
+        android:text="@string/detail"/>
+
+</LinearLayout>
