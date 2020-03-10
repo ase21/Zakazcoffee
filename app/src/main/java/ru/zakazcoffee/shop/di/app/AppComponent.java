@@ -8,6 +8,9 @@ import dagger.BindsInstance;
 import dagger.Component;
 import ru.zakazcoffee.shop.di.login.login_screen.LoginComponent;
 import ru.zakazcoffee.shop.di.login.new_acc.NewAccountComponent;
+import ru.zakazcoffee.shop.di.main.basket_screen.BasketScreenComponent;
+import ru.zakazcoffee.shop.di.main.main_screen.MainScreenComponent;
+import ru.zakazcoffee.shop.di.main.profile_screen.ProfileScreenComponent;
 import ru.zakazcoffee.shop.di.splash_screen.SplashComponent;
 
 @Singleton
@@ -25,4 +28,9 @@ public interface AppComponent {
 
     NewAccountComponent plusNewAccountComponent();
 
+    MainScreenComponent plusMainScreenComponent();
+
+    BasketScreenComponent plusBasketScreenComponent();
+
+    ProfileScreenComponent plusProfileScreenComponent();
 }

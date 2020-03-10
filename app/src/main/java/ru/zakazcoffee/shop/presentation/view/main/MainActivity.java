@@ -12,7 +12,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.zakazcoffee.shop.R;
+import ru.zakazcoffee.shop.presentation.view.main.basket_screen.BasketScreenFragment;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.MainScreenFragment;
+import ru.zakazcoffee.shop.presentation.view.main.profile_screen.ProfileScreenFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
 //                        selectedMenuId = menuItem.getItemId();
                     return true;
                 case R.id.basketScreen:
-//                    showBottomNavigationMenuFragment();
+                    showBottomNavigationMenuFragment(new BasketScreenFragment());
 //                        selectedMenuId = menuItem.getItemId();
                     return true;
                 case R.id.profileScreen:
-//                    showBottomNavigationMenuFragment();
+                    showBottomNavigationMenuFragment(new ProfileScreenFragment());
 //                        selectedMenuId = menuItem.getItemId();
                     return true;
                 case R.id.showNavigationDrawer:

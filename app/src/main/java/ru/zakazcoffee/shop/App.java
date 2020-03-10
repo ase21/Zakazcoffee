@@ -6,6 +6,9 @@ import ru.zakazcoffee.shop.di.app.AppComponent;
 import ru.zakazcoffee.shop.di.app.DaggerAppComponent;
 import ru.zakazcoffee.shop.di.login.login_screen.LoginComponent;
 import ru.zakazcoffee.shop.di.login.new_acc.NewAccountComponent;
+import ru.zakazcoffee.shop.di.main.basket_screen.BasketScreenComponent;
+import ru.zakazcoffee.shop.di.main.main_screen.MainScreenComponent;
+import ru.zakazcoffee.shop.di.main.profile_screen.ProfileScreenComponent;
 import ru.zakazcoffee.shop.di.splash_screen.SplashComponent;
 
 public class App extends Application {
@@ -16,6 +19,9 @@ public class App extends Application {
     private SplashComponent splashComponent;
     private LoginComponent loginComponent;
     private NewAccountComponent newAccountComponent;
+    private MainScreenComponent mainScreenComponent;
+    private BasketScreenComponent basketScreenComponent;
+    private ProfileScreenComponent profileScreenComponent;
 
     public static App getInstance() {
         return instance;
@@ -62,5 +68,35 @@ public class App extends Application {
 
     public void clearNewAccountComponent() {
         newAccountComponent = null;
+    }
+
+    public MainScreenComponent plusMainScreenComponent() {
+        if (mainScreenComponent == null)
+            mainScreenComponent = appComponent.plusMainScreenComponent();
+        return mainScreenComponent;
+    }
+
+    public void clearMainScreenComponent() {
+        mainScreenComponent = null;
+    }
+
+    public BasketScreenComponent plusBasketScreenComponent() {
+        if (basketScreenComponent == null)
+            basketScreenComponent = appComponent.plusBasketScreenComponent();
+        return basketScreenComponent;
+    }
+
+    public void clearBasketScreenComponent() {
+        basketScreenComponent = null;
+    }
+
+    public ProfileScreenComponent plusProfileScreenComponent() {
+        if (profileScreenComponent == null)
+            profileScreenComponent = appComponent.plusProfileScreenComponent();
+        return profileScreenComponent;
+    }
+
+    public void clearProfileScreenComponent() {
+        profileScreenComponent = null;
     }
 }
