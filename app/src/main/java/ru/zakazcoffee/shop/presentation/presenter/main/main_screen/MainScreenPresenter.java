@@ -19,4 +19,13 @@ public class MainScreenPresenter extends MvpPresenter<MainScreenView> {
         compositeDisposable = new CompositeDisposable();
         App.getInstance().plusMainScreenComponent().inject(this);
     }
+
+    public void getInformation() {
+
+    }
+
+    public void destroy() {
+        compositeDisposable.clear();
+        App.getInstance().clearMainScreenComponent();
+    }
 }
