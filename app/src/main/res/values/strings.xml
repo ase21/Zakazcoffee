@@ -19,4 +19,11 @@
     <string name="news">Новости</string>
     <string name="recently_watched">Недавно просмотренные</string>
     <string name="detail">Подробнее</string>
+    <string name="history">История заказов</string>
+    <string name="buyers_account">Счет покупателя</string>
+    <string name="delivery_rules">Правила доставки</string>
+    <string name="points">Накопительные баллы</string>
+    <string name="invite_friend">Пригласи друга</string>
+    <string name="wallet">Пополнить кошелек</string>
+    <string name="total_rules">Правила</string>
 </resources>

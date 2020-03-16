@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_history"
+            android:icon="@drawable/ic_navigation_history"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/navigation_buyers_account"
+            android:icon="@drawable/ic_navigation_buyers_account"
+            android:title="@string/buyers_account" />
+        <item
+            android:id="@+id/navigation_delivery_rules"
+            android:icon="@drawable/ic_navigation_delivery_rules"
+            android:title="@string/delivery_rules" />
+        <item
+            android:id="@+id/navigation_points"
+            android:icon="@drawable/ic_navigation_points"
+            android:title="@string/points" />
+        <item
+            android:id="@+id/navigation_invite_friend"
+            android:icon="@drawable/ic_navigation_invite_friend"
+            android:title="@string/invite_friend" />
+        <item
+            android:id="@+id/navigation_wallet"
+            android:icon="@drawable/ic_navigation_wallet"
+            android:title="@string/wallet" />
+        <item
+            android:id="@+id/navigation_total_rules"
+            android:icon="@drawable/ic_navigation_total_rules"
+            android:title="@string/total_rules" />
+    </group>
+
+</menu>

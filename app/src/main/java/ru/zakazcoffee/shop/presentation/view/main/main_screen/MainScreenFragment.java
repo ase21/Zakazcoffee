@@ -72,10 +72,11 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
     }
 
     private void initUi(View view) {
+        unbinder = ButterKnife.bind(this, view);
+
         bannerAdapter = new BannerAdapter();
         viewPager.setAdapter(bannerAdapter);
         indicator.setViewPager(viewPager);
-        unbinder = ButterKnife.bind(this, view);
 
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         categoryAdapter = new CategoryAdapter();
@@ -97,27 +98,27 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
 
     @Override
     public void setBanners(List<Banner> banners) {
-        bannerAdapter.setBanners(banners);
+//        bannerAdapter.setBanners(banners);
     }
 
     @Override
     public void setCoffeeCategories(List<CoffeeCategory> categories) {
-        categoryAdapter.setCategories(categories);
+//        categoryAdapter.setCategories(categories);
     }
 
     @Override
     public void setTopCoffee(List<Coffee> topCoffees) {
-        topCoffeeAdapter.setCoffee(topCoffees);
+//        topCoffeeAdapter.setCoffee(topCoffees);
     }
 
     @Override
     public void setNews(List<News> news) {
-        newsAdapter.setNews(news);
+//        newsAdapter.setNews(news);
     }
 
     @Override
     public void setRecentlyWatched(List<Coffee> recentlyWatchedCoffees) {
-        recentlyWatchedCoffeeAdapter.setCoffee(recentlyWatchedCoffees);
+//        recentlyWatchedCoffeeAdapter.setCoffee(recentlyWatchedCoffees);
     }
 
     @Override
