@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -72,10 +73,14 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
     }
 
     private void initUi(View view) {
+        unbinder = ButterKnife.bind(this, view);
+
+        DividerItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecor.setDrawable(getResources().getDrawable(R.drawable.horizontal_line));
+
         bannerAdapter = new BannerAdapter();
         viewPager.setAdapter(bannerAdapter);
         indicator.setViewPager(viewPager);
-        unbinder = ButterKnife.bind(this, view);
 
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         categoryAdapter = new CategoryAdapter();
@@ -84,15 +89,17 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
         topCoffeeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         topCoffeeAdapter = new CoffeeAdapter();
         topCoffeeRecyclerView.setAdapter(topCoffeeAdapter);
+        topCoffeeRecyclerView.addItemDecoration(itemDecor);
 
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter();
         newsRecyclerView.setAdapter(newsAdapter);
+        newsRecyclerView.addItemDecoration(itemDecor);
 
         recentlyWatchedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recentlyWatchedCoffeeAdapter = new CoffeeAdapter();
-        recentlyWatchedRecyclerView.setAdapter(topCoffeeAdapter);
-
+        recentlyWatchedRecyclerView.setAdapter(recentlyWatchedCoffeeAdapter);
+        recentlyWatchedRecyclerView.addItemDecoration(itemDecor);
     }
 
     @Override

@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="3"
-                tools:listitem="@layout/item_top_coffee" />
+                tools:listitem="@layout/item_coffee" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_top_coffee" />
+                tools:listitem="@layout/item_coffee" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

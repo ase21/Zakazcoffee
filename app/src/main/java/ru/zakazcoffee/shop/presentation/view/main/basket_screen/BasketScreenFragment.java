@@ -20,7 +20,7 @@ public class BasketScreenFragment extends MvpAppCompatFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_screen, container, false);
+        View view = inflater.inflate(R.layout.fragment_basket_screen, container, false);
         initUi(view);
 
         return view;
