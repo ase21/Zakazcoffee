@@ -16,9 +16,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import ru.zakazcoffee.shop.data.network.NetworkRepository;
 
 @Module
-public class NetworkModule {
+class NetworkModule {
 
-    private static final String BASE_URL = "https://itn.ltd";
+    private static final String BASE_URL = "https://mobileapp.zakazcoffee.ru/server/";
     private static final int TIMEOUT = 30;
 
     @NonNull

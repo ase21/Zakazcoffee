@@ -5,7 +5,7 @@ import com.jakewharton.rxbinding3.widget.TextViewTextChangeEvent;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.disposables.CompositeDisposable;
 import moxy.InjectViewState;
 import moxy.MvpPresenter;
 import ru.zakazcoffee.shop.App;
@@ -27,11 +27,8 @@ public class NewAccountPresenter extends MvpPresenter<NewAccountView> {
 
     public void createNewAccount(String fullname, String email, String password) {
         compositeDisposable.add(interactor.createNewAccount(fullname, email, password)
-                        .subscribe(response -> {
-
-                                },
-                                throwable -> showMessage(throwable.getMessage()),
-                                () -> NewAccountPresenter.this.showMessage("Try to create account later"))
+                        .subscribe(response -> getViewState().showRegConfirmationFragment(),
+                                throwable -> showMessage(throwable.getMessage()))
         );
     }
 

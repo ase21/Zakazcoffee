@@ -7,6 +7,14 @@ import ru.zakazcoffee.shop.di.app.DaggerAppComponent;
 import ru.zakazcoffee.shop.di.login.login_screen.LoginComponent;
 import ru.zakazcoffee.shop.di.login.new_acc.NewAccountComponent;
 import ru.zakazcoffee.shop.di.main.basket_screen.BasketScreenComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.about.AboutUsComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.buyers_account.BuyersComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.delivery_rules.DeliveryRulesComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.history.HistoryComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.invite_friend.InviteFriendComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.points.PointsComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.total_rules.TotalRulesComponent;
+import ru.zakazcoffee.shop.di.main.left_menu.wallet.WalletComponent;
 import ru.zakazcoffee.shop.di.main.main_screen.MainScreenComponent;
 import ru.zakazcoffee.shop.di.main.profile_screen.ProfileScreenComponent;
 import ru.zakazcoffee.shop.di.splash_screen.SplashComponent;
@@ -22,6 +30,14 @@ public class App extends Application {
     private MainScreenComponent mainScreenComponent;
     private BasketScreenComponent basketScreenComponent;
     private ProfileScreenComponent profileScreenComponent;
+    private AboutUsComponent aboutUsComponent;
+    private HistoryComponent historyComponent;
+    private BuyersComponent buyersComponent;
+    private DeliveryRulesComponent deliveryRulesComponent;
+    private PointsComponent pointsComponent;
+    private InviteFriendComponent inviteFriendComponent;
+    private WalletComponent walletComponent;
+    private TotalRulesComponent totalRulesComponent;
 
     public static App getInstance() {
         return instance;
@@ -98,5 +114,15 @@ public class App extends Application {
 
     public void clearProfileScreenComponent() {
         profileScreenComponent = null;
+    }
+
+    public AboutUsComponent plusAboutUsComponent() {
+        if (aboutUsComponent == null)
+            aboutUsComponent = appComponent.plusAboutUsComponent();
+        return aboutUsComponent;
+    }
+
+    public void clearAboutUsComponent() {
+        aboutUsComponent = null;
     }
 }

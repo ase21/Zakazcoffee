@@ -16,13 +16,5 @@ public interface MainScreenView extends MvpView {
 
     void hideProgressBar();
 
-    void setBanners(List<Banner> banners);
-
-    void setCoffeeCategories(List<CoffeeCategory> categories);
-
-    void setTopCoffee(List<Coffee> topCoffees);
-
-    void setNews(List<News> news);
-
-    void setRecentlyWatched(List<Coffee> recentlyWatchedCoffees);
+    void setInformation(MainInformation information);
 }

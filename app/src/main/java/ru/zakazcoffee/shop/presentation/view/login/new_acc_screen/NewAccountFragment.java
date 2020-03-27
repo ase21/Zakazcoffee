@@ -63,12 +63,16 @@ public class NewAccountFragment extends MvpAppCompatFragment implements NewAccou
         createButton.setEnabled(isUnable);
     }
 
+    @Override
+    public void showRegConfirmationFragment() {
+        ((LoginActivity) getActivity()).showFragment(new RegConfirmationFragment());
+    }
+
     @OnClick(R.id.createButton)
     void onCreateButtonClicked() {
-//        presenter.createNewAccount(fullNameEditText.getText().toString(),
-//                emailEditText.getText().toString(),
-//                passwordEditText.getText().toString());
-        ((LoginActivity) getActivity()).showFragment(new RegConfirmationFragment());
+        presenter.createNewAccount(fullNameEditText.getText().toString(),
+                emailEditText.getText().toString(),
+                passwordEditText.getText().toString());
     }
 
     @OnClick(R.id.backImageButton)

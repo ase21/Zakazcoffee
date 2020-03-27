@@ -26,6 +26,7 @@ import ru.zakazcoffee.shop.R;
 import ru.zakazcoffee.shop.data.models.Banner;
 import ru.zakazcoffee.shop.data.models.Coffee;
 import ru.zakazcoffee.shop.data.models.CoffeeCategory;
+import ru.zakazcoffee.shop.data.models.MainInformation;
 import ru.zakazcoffee.shop.data.models.News;
 import ru.zakazcoffee.shop.presentation.presenter.main.main_screen.MainScreenPresenter;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters.BannerAdapter;
@@ -47,11 +48,11 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
     RecyclerView newsRecyclerView;
     @BindView(R.id.recentlyWatchedRecyclerView)
     RecyclerView recentlyWatchedRecyclerView;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     @InjectPresenter
     MainScreenPresenter presenter;
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
 
     private BannerAdapter bannerAdapter;
     private CategoryAdapter categoryAdapter;
@@ -103,27 +104,31 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
     }
 
     @Override
-    public void setBanners(List<Banner> banners) {
+    public void setInformation(MainInformation information) {
+        setBanners(information.getBanners());
+        setCoffeeCategories(information.getCoffeeCategories());
+        setTopCoffee(information.getTopCoffees());
+        setNews(information.getNews());
+        setRecentlyWatched(information.getLastSeenCoffees());
+    }
+
+    private void setBanners(List<Banner> banners) {
         bannerAdapter.setBanners(banners);
     }
 
-    @Override
-    public void setCoffeeCategories(List<CoffeeCategory> categories) {
+    private void setCoffeeCategories(List<CoffeeCategory> categories) {
         categoryAdapter.setCategories(categories);
     }
 
-    @Override
-    public void setTopCoffee(List<Coffee> topCoffees) {
+    private void setTopCoffee(List<Coffee> topCoffees) {
         topCoffeeAdapter.setCoffee(topCoffees);
     }
 
-    @Override
-    public void setNews(List<News> news) {
+    private void setNews(List<News> news) {
         newsAdapter.setNews(news);
     }
 
-    @Override
-    public void setRecentlyWatched(List<Coffee> recentlyWatchedCoffees) {
+    private void setRecentlyWatched(List<Coffee> recentlyWatchedCoffees) {
         recentlyWatchedCoffeeAdapter.setCoffee(recentlyWatchedCoffees);
     }
 

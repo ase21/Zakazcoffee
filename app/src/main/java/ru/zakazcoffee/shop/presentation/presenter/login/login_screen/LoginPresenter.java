@@ -5,7 +5,9 @@ import com.jakewharton.rxbinding3.widget.TextViewTextChangeEvent;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import moxy.InjectViewState;
 import moxy.MvpPresenter;
 import ru.zakazcoffee.shop.App;
@@ -26,17 +28,17 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
     }
 
     public void login(String email, String password){
-//        compositeDisposable.add(
-//                interactor
-//                        .login(email, password)
-//                        .subscribe(response -> {
-//                                    // TODO: 05.03.2020 do nothing
-//                                },
-//                                throwable -> showMessage(throwable.getMessage()),
-//                                () -> showMessage("Try to login later")
-//                        )
-//        );
-        getViewState().showMainActivity();
+        compositeDisposable.add(
+                interactor.login(email, password)
+                        .flatMap(code -> interactor.sendToken(code.getCode()))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnSuccess(tokenResponse -> saveToken(tokenResponse.getAccessToken()))
+                        .subscribe(
+                                tokenResponse -> getViewState().showMainActivity(),
+                                throwable -> showMessage(throwable.getMessage())
+                        )
+        );
     }
 
     private void saveToken(String accessToken) {
@@ -54,6 +56,6 @@ public class LoginPresenter extends MvpPresenter<LoginScreenView> {
 
     public void listenFields(Observable<TextViewTextChangeEvent> loginEditTextListener, Observable<TextViewTextChangeEvent> passwordEditTextListener) {
         interactor.controlSendButton(loginEditTextListener, passwordEditTextListener)
-                .subscribe(getViewState()::setEnableSendButton, throwable -> {});
+                .subscribe(getViewState()::setEnableSendButton, throwable -> showMessage(throwable.getMessage()));
     }
 }

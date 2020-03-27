@@ -1,5 +1,6 @@
 package ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public void setCategories(List<CoffeeCategory> categories) {
         this.categories = categories;
+        notifyDataSetChanged();
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
@@ -57,11 +59,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         }
 
         public void bind(CoffeeCategory coffeeCategory) {
-            categoryNameTextView.setText(coffeeCategory.getCategoryName());
+            categoryNameTextView.setText(Html.fromHtml(coffeeCategory.getCategoryName()));
             Glide.with(itemView)
                     .load(coffeeCategory.getCategoryImageUrl())
 //                    .apply(RequestOptions.centerCropTransform())
-//                    .error(android.R.drawable.ic_menu_close_clear_cancel)
+                    .error(android.R.drawable.ic_menu_close_clear_cancel)
                     .into(categoryImageView);
         }
     }
