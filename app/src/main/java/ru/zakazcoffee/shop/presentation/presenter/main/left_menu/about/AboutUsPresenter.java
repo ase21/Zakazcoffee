@@ -25,13 +25,13 @@ public class AboutUsPresenter extends MvpPresenter<AboutUsView> {
     }
 
     public void getInformation() {
-        compositeDisposable.add(interactor.getInformation()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(disposable -> getViewState().showProgressBar())
-                .doAfterTerminate(() -> getViewState().hideProgressBar())
-                .subscribe(information ->  getViewState().showAboutUsInfo(information),
-                        throwable -> {}));
+//        compositeDisposable.add(interactor.getInformation()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnSubscribe(disposable -> getViewState().showProgressBar())
+//                .doAfterTerminate(() -> getViewState().hideProgressBar())
+//                .subscribe(information ->  getViewState().showAboutUsInfo(information),
+//                        throwable -> {}));
     }
 
     public void destroy() {

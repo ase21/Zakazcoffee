@@ -13,6 +13,7 @@ import retrofit2.http.Query;
 import ru.zakazcoffee.shop.data.models.Code;
 import ru.zakazcoffee.shop.data.models.CoffeeCategory;
 import ru.zakazcoffee.shop.data.models.RequestToken;
+import ru.zakazcoffee.shop.data.models.Rules;
 import ru.zakazcoffee.shop.data.models.TokenResponse;
 
 public interface NetworkRepository {
@@ -48,13 +49,13 @@ public interface NetworkRepository {
     @POST("api.php")
     Single<Void> getAboutInfo(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
 
-//    @FormUrlEncoded
-//    @POST("api.php")
-//    Single<Void> sendRequest(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
+    @FormUrlEncoded
+    @POST("api.php")
+    Single<Rules> getTotalRules(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
 
-//    @FormUrlEncoded
-//    @POST("api.php")
-//    Single<Void> sendRequest(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
+    @FormUrlEncoded
+    @POST("api.php")
+    Single<Void> getHistory(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
 //
 //    @FormUrlEncoded
 //    @POST("api.php")

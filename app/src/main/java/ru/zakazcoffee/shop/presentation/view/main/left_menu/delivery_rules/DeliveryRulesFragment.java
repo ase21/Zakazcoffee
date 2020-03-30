@@ -1,9 +1,11 @@
 package ru.zakazcoffee.shop.presentation.view.main.left_menu.delivery_rules;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,12 +21,10 @@ import ru.zakazcoffee.shop.R;
 
 public class DeliveryRulesFragment extends MvpAppCompatFragment implements DeliveryRulesView {
 
-    @BindView(R.id.backImageButton)
-    ImageButton backImageButton;
     @BindView(R.id.headerTextView)
     TextView headerTextView;
-    @BindView(R.id.rulesTextView)
-    TextView rulesTextView;
+    @BindView(R.id.rulesWebView)
+    WebView rulesWebView;
     private Unbinder unbinder;
 
     @Nullable
@@ -45,7 +45,7 @@ public class DeliveryRulesFragment extends MvpAppCompatFragment implements Deliv
 
     @Override
     public void showRules(String rules) {
-        rulesTextView.setText(rules);
+        rulesWebView.loadDataWithBaseURL(null, Html.fromHtml(rules).toString(), "text/html", "utf-8", null);
     }
 
     @OnClick(R.id.backImageButton)

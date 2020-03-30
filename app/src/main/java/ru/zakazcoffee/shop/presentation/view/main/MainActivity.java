@@ -1,5 +1,6 @@
 package ru.zakazcoffee.shop.presentation.view.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.google.android.material.navigation.NavigationView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.zakazcoffee.shop.R;
+import ru.zakazcoffee.shop.presentation.view.login.LoginActivity;
 import ru.zakazcoffee.shop.presentation.view.main.basket_screen.BasketScreenFragment;
 import ru.zakazcoffee.shop.presentation.view.main.left_menu.delivery_rules.DeliveryRulesFragment;
 import ru.zakazcoffee.shop.presentation.view.main.left_menu.history.HistoryFragment;
@@ -118,5 +120,11 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public void showLoginScreen() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

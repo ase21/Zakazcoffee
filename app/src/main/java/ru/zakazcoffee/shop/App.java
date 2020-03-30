@@ -125,4 +125,74 @@ public class App extends Application {
     public void clearAboutUsComponent() {
         aboutUsComponent = null;
     }
+
+    public HistoryComponent plusHistoryComponent() {
+        if (historyComponent == null)
+            historyComponent = appComponent.plusHistoryComponent();
+        return historyComponent;
+    }
+
+    public void clearHistoryComponent() {
+        historyComponent = null;
+    }
+
+    public BuyersComponent plusBuyersComponent() {
+        if (buyersComponent == null)
+            buyersComponent = appComponent.plusBuyersComponent();
+        return buyersComponent;
+    }
+
+    public void clearBuyersComponent() {
+        buyersComponent = null;
+    }
+
+    public PointsComponent plusPointsComponent() {
+        if (pointsComponent == null)
+            pointsComponent = appComponent.plusPointsComponent();
+        return pointsComponent;
+    }
+
+    public void clearPointsComponent() {
+        pointsComponent = null;
+    }
+
+    public InviteFriendComponent plusInviteFriendComponent() {
+        if (inviteFriendComponent == null)
+            inviteFriendComponent = appComponent.plusInviteFriendComponent();
+        return inviteFriendComponent;
+    }
+
+    public void clearInviteFriendComponent() {
+        inviteFriendComponent = null;
+    }
+
+    public WalletComponent plusWalletComponent() {
+        if (walletComponent == null)
+            walletComponent = appComponent.plusWalletComponent();
+        return walletComponent;
+    }
+
+    public void clearWalletComponent() {
+        walletComponent = null;
+    }
+
+    public DeliveryRulesComponent plusDeliveryRulesComponent() {
+        if (deliveryRulesComponent == null)
+            deliveryRulesComponent = appComponent.plusDeliveryRulesComponent();
+        return deliveryRulesComponent;
+    }
+
+    public void clearDeliveryRulesComponent() {
+        deliveryRulesComponent = null;
+    }
+
+    public TotalRulesComponent plusTotalRulesComponent() {
+        if (totalRulesComponent == null)
+            totalRulesComponent = appComponent.plusTotalRulesComponent();
+        return totalRulesComponent;
+    }
+
+    public void clearTotalRulesComponent() {
+        totalRulesComponent = null;
+    }
 }

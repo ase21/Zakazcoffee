@@ -52,7 +52,7 @@ public class AboutUsFragment extends MvpAppCompatFragment implements AboutUsView
     @Override
     public void onStart() {
         super.onStart();
-        presenter.getAboutUsInfo();
+//        presenter.getAboutUsInfo();
     }
 
     @Override
