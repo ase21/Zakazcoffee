@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 import ru.zakazcoffee.shop.data.models.Code;
 import ru.zakazcoffee.shop.data.models.CoffeeCategory;
+import ru.zakazcoffee.shop.data.models.HomePage;
 import ru.zakazcoffee.shop.data.models.RequestToken;
 import ru.zakazcoffee.shop.data.models.Rules;
 import ru.zakazcoffee.shop.data.models.TokenResponse;
@@ -40,6 +41,10 @@ public interface NetworkRepository {
     @FormUrlEncoded
     @POST("api.php")
     Single<Void> sendRequest(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
+
+    @FormUrlEncoded
+    @POST("api.php")
+    Single<HomePage> getHomePage(@Field("method") String method, @Field("token") String token, @Field("client_secret") String clientSecret, @Field("client_id") String clientId);
 
     @FormUrlEncoded
     @POST("api.php")

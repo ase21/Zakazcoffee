@@ -1,11 +1,15 @@
 package ru.zakazcoffee.shop.data.models;
 
-public class News {
+import com.google.gson.annotations.SerializedName;
 
+public class News {
+    @SerializedName(value = "id")
     private int newsId;
 
+    @SerializedName(value = "image")
     private String newsTitle;
 
+    @SerializedName(value = "logo")
     private String newsBody;
 
     public News(int newsId, String newsTitle, String newsBody) {

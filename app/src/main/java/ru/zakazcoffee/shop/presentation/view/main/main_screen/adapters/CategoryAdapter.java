@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +25,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private List<CoffeeCategory> categories = new ArrayList<>();
 
+    private OnCategoryClickListener listener;
+
+    public interface OnCategoryClickListener {
+        void onCategoryClick(String name, int id);
+    }
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +54,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.categoryCardView)
+        CardView categoryCardView;
         @BindView(R.id.categoryImageView)
         ImageView categoryImageView;
         @BindView(R.id.categoryNameTextView)
@@ -65,6 +73,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 //                    .apply(RequestOptions.centerCropTransform())
                     .error(android.R.drawable.ic_menu_close_clear_cancel)
                     .into(categoryImageView);
+            categoryCardView.setOnClickListener(v -> listener.onCategoryClick(coffeeCategory.getCategoryName(), coffeeCategory.getCategoryId()));
         }
     }
 }

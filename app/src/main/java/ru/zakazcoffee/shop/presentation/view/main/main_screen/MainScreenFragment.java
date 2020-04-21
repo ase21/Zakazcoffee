@@ -29,12 +29,14 @@ import ru.zakazcoffee.shop.data.models.CoffeeCategory;
 import ru.zakazcoffee.shop.data.models.MainInformation;
 import ru.zakazcoffee.shop.data.models.News;
 import ru.zakazcoffee.shop.presentation.presenter.main.main_screen.MainScreenPresenter;
+import ru.zakazcoffee.shop.presentation.view.main.MainActivity;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters.BannerAdapter;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters.CategoryAdapter;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters.CoffeeAdapter;
 import ru.zakazcoffee.shop.presentation.view.main.main_screen.adapters.NewsAdapter;
+import ru.zakazcoffee.shop.presentation.view.main.main_screen.subcategories.SubcategoriesFragment;
 
-public class MainScreenFragment extends MvpAppCompatFragment implements MainScreenView {
+public class MainScreenFragment extends MvpAppCompatFragment implements MainScreenView, CategoryAdapter.OnCategoryClickListener {
 
     @BindView(R.id.viewPager)
     ViewPager2 viewPager;
@@ -151,5 +153,10 @@ public class MainScreenFragment extends MvpAppCompatFragment implements MainScre
     public void onDestroy() {
         presenter.destroy();
         super.onDestroy();
+    }
+
+    @Override
+    public void onCategoryClick(String name, int id) {
+        ((MainActivity) getActivity()).showFragment(SubcategoriesFragment.newInstance(name, id));
     }
 }
