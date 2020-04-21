@@ -26,6 +26,6 @@ public class ProfileScreenInteractorImpl implements ProfileScreenInteractor {
 
     @Override
     public Single<User> getInformation() {
-        return null;
+        return Single.fromCallable(() -> new User("Name", "test@test.ru", "+10 000 000", "City, test", "https://avatars.mds.yandex.net/get-pdb/2255805/43e935b4-4338-4ef1-953c-a1f6b21be752/s1200"));
     }
 }

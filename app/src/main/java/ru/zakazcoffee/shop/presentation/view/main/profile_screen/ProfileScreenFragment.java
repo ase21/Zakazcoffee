@@ -18,6 +18,7 @@ import butterknife.Unbinder;
 import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
 import ru.zakazcoffee.shop.R;
+import ru.zakazcoffee.shop.data.models.User;
 import ru.zakazcoffee.shop.presentation.presenter.main.profile_screen.ProfileScreenPresenter;
 import ru.zakazcoffee.shop.presentation.view.main.MainActivity;
 import ru.zakazcoffee.shop.presentation.view.main.left_menu.history.HistoryFragment;
@@ -78,6 +79,11 @@ public class ProfileScreenFragment extends MvpAppCompatFragment implements Profi
     @Override
     public void hideProgressBar() {
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showInformationAboutUser(User user) {
+
     }
 
     @Override
